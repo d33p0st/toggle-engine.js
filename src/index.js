@@ -18,28 +18,28 @@
 function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable=null, ...optArgs) {
     // Check parameters...
     if (typeof startHour !== "number") {
-        throw new TypeError("startHour param must be a number.")
+        throw new TypeError("startHour param must be a number.");
     }
     if (typeof startMinute !== "number") {
-        throw new TypeError("startMinute param must be a number.")
+        throw new TypeError("startMinute param must be a number.");
     }
     if (typeof startSecond !== "number") {
-        throw new TypeError("startSecond param must be a number.")
+        throw new TypeError("startSecond param must be a number.");
     }
     if (typeof endHour !== "number") {
-        throw new TypeError("endHour param must be a number.")
+        throw new TypeError("endHour param must be a number.");
     }
     if (typeof endMinute !== "number") {
-        throw new TypeError("endMinute param must be a number.")
+        throw new TypeError("endMinute param must be a number.");
     }
     if (typeof endSecond !== "number") {
-        throw new TypeError("endSecond param must be a number.")
+        throw new TypeError("endSecond param must be a number.");
     }
     if (typeof refreshRate !== "number") {
-        throw new TypeError("refreshRate param must be a number.")
+        throw new TypeError("refreshRate param must be a number.");
     }
     if (optCallable !==null && typeof optCallable !== "function") {
-        throw new TypeError("optCallable param must be a function.")
+        throw new TypeError("optCallable param must be a function.");
     }
 
     // get current date
