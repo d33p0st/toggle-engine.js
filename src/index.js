@@ -52,7 +52,11 @@ function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute,
     const body = document.body;
 
     // condition
-    if ((hour >= startHour && minute >= startMinute && second >= startSecond) || (hour < endHour && minute < endMinute && second < endSecond)) {
+    const isInTimeFrame = (
+        (hour > startHour || (hour === startHour && minute > startMinute) || (hour === startHour && minute === startMinute && second >= startSecond)) && 
+        (hour < endHour || (hour === endHour && minute < endMinute) || (hour === endHour && minute === endMinute && second < endSecond))
+    );
+    if (isInTimeFrame) {
         // dark mode here
 
         // add dark-mode to body
