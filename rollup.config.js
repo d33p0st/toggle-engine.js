@@ -19,19 +19,14 @@
 //     plugins: [resolve(), commonjs()]
 // };
 
-import { babel } from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-
 const config = {
   input: 'src/index.js',
   output: {
     file: 'dist/dark-mode.js',
-    format: 'cjs'
+    format: 'iife',
+    name: 'darkMode'
   },
-  plugins: [
-    commonjs({ defaultIsModuleExports: false }),
-    babel({ babelHelpers: 'bundled' })
-  ],
+
 };
 
 export default config;
