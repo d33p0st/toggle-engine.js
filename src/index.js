@@ -1,16 +1,16 @@
 /**
- * Enables Dark mode settings at given time.
+ * Toggles a given class based on time.
  * 
- * This function sets '.dark-mode' class to document body 
- * and therefore you need to define a '.dark-mode' class selector 
- * in your css for every part you want to change with dark mode.
+ * This function sets 'className' param to the document body 
+ * and therefore you need to define a 'className' param class selector 
+ * in your css for every part you want to change with the 'className'
  * 
- * @param {number} startHour - The hour value when to start dark mode such as 19 (for 7 p.m.). 0..23
- * @param {number} startMinute - The Minute value when to start dark mode such as 45 (for 45th minute). 0..59
- * @param {number} startSecond - The Second value when to start dark mode such as 10 (for 10th second). 0..59
- * @param {number} endHour - The hour value to stop dark mode. 0..23
- * @param {number} endMinute - The minute value to stop dark mode. 0..59
- * @param {number} endSecond - The second value to stop dark mode. 0..59
+ * @param {number} startHour - The hour value when to enable the class such as 19 (for 7 p.m.). 0..23
+ * @param {number} startMinute - The Minute value when to enable the class such as 45 (for 45th minute). 0..59
+ * @param {number} startSecond - The Second value when to enable the class such as 10 (for 10th second). 0..59
+ * @param {number} endHour - The hour value to disable the class. 0..23
+ * @param {number} endMinute - The minute value to disable the class. 0..59
+ * @param {number} endSecond - The second value to disable the class. 0..59
  * @param {string} className - The class name to add to the entire document
  * @param {number} [refreshRate=null] - The interval after which it refreshes (in ms). If it is null, it wont restart.
  * @param {Function} [optCallable=null] - Optional Callable to do some extra task. It should at least accept one string param which 'toggle' function will provide. It is basically either 'added' or 'removed'.
