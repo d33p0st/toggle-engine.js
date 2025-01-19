@@ -131,4 +131,4 @@ function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute,
     }, refreshRate);
 }
 
-export { enableDarkMode as default };
+export { enableDarkMode };

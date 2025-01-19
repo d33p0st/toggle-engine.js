@@ -15,7 +15,7 @@
  * @param {Function} [optCallable=null] - Optional Callable to do some extra task. It should at least accept one string param which 'enableDarkMode' function will provide. It is basically either 'dark' or 'light'.
  * @param {Iterable} optArgs - The optional other args of the function.
  */
-function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable=null, ...optArgs) {
+export function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable=null, ...optArgs) {
     // Check parameters...
     if (typeof startHour !== "number" || startHour < 0 || startHour > 23) {
         throw new TypeError("startHour param must be a number between 0 and 23.");
@@ -130,6 +130,3 @@ function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute,
         enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable, ...optArgs);
     }, refreshRate);
 }
-
-// export 
-export default enableDarkMode;
