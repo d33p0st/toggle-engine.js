@@ -14,11 +14,12 @@
      * @param {number} endHour - The hour value to stop dark mode. 0..23
      * @param {number} endMinute - The minute value to stop dark mode. 0..59
      * @param {number} endSecond - The second value to stop dark mode. 0..59
-     * @param {number} refreshRate - The interval after which it refreshes (in ms).
-     * @param {Function} [optCallable=null] - Optional Callable to do some extra task. It should at least accept one string param which 'enableDarkMode' function will provide. It is basically either 'dark' or 'light'.
+     * @param {string} className - The class name to add to the entire document
+     * @param {number} [refreshRate=null] - The interval after which it refreshes (in ms). If it is null, it wont restart.
+     * @param {Function} [optCallable=null] - Optional Callable to do some extra task. It should at least accept one string param which 'toggle' function will provide. It is basically either 'added' or 'removed'.
      * @param {Iterable} optArgs - The optional other args of the function.
      */
-    function enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable=null, ...optArgs) {
+    function toggle(startHour, startMinute, startSecond, endHour, endMinute, endSecond, className, refreshRate=null, optCallable=null, ...optArgs) {
         // Check parameters...
         if (typeof startHour !== "number" || startHour < 0 || startHour > 23) {
             throw new TypeError("startHour param must be a number between 0 and 23.");
@@ -38,8 +39,11 @@
         if (typeof endSecond !== "number" || endSecond < 0 || endSecond > 59) {
             throw new TypeError("endSecond param must be a number between 0 and 59.");
         }
-        if (typeof refreshRate !== "number" || refreshRate <= 0) {
-            throw new TypeError("refreshRate param must be a positive number.");
+        if (typeof className !== "string") {
+            throw new TypeError("className must be a string.")
+        }
+        if (typeof refreshRate !== "number" || refreshRate <= 0 || refreshRate !== null) {
+            throw new TypeError("refreshRate param must be a positive number or null.");
         }
         if (optCallable !== null && typeof optCallable !== "function") {
             throw new TypeError("optCallable param must be a function.");
@@ -105,36 +109,38 @@
 
         if (isDarkMode) {
             // dark mode here
-            body.classList.add('dark-mode');
+            body.classList.add(className);
 
             // run callable if it is not null
             if (optCallable !== null) {
                 if (optArgs.length !== 0) {
-                    optCallable('dark', ...optArgs);
+                    optCallable('added', ...optArgs);
                 } else {
-                    optCallable('dark');
+                    optCallable('added');
                 }
             }
         } else {
             // light mode here
-            body.classList.remove('dark-mode');
+            body.classList.remove('className');
 
             // run callable if it is not null
             if (optCallable !== null) {
                 if (optArgs.length !== 0) {
-                    optCallable('light', ...optArgs);
+                    optCallable('removed', ...optArgs);
                 } else {
-                    optCallable('light');
+                    optCallable('removed');
                 }
             }
         }
 
-        setTimeout(() => {
-            enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable, ...optArgs);
-        }, refreshRate);
+        if (refreshRate !== null) {
+            setTimeout(() => {
+                enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable, ...optArgs);
+            }, refreshRate);
+        }
     }
 
-    window.enableDarkMode = enableDarkMode;
-    globalThis.enableDarkMode = enableDarkMode;
+    window.toggle = toggle;
+    globalThis.toggle = toggle;
 
 })();
