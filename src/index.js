@@ -39,7 +39,7 @@ function toggle(startHour, startMinute, startSecond, endHour, endMinute, endSeco
     if (typeof className !== "string") {
         throw new TypeError("className must be a string.")
     }
-    if (typeof refreshRate !== "number" || refreshRate <= 0 || refreshRate !== null) {
+    if ((typeof refreshRate !== "number" && refreshRate !== null) || (refreshRate <= 0)) {
         throw new TypeError("refreshRate param must be a positive number or null.");
     }
     if (optCallable !== null && typeof optCallable !== "function") {
