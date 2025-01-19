@@ -1,22 +1,20 @@
 {
-  "name": "dark-mode",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "babel-loader": "^9.2.1",
-    "rollup": "^2.79.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1"
-  },
-  "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "watch": "webpack --watch --config webpack.config.js"
-  }
+    "name": "dark-mode",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.26.0",
+        "@babel/preset-env": "^7.26.0",
+        "@rollup/plugin-commonjs": "^28.0.2",
+        "@rollup/plugin-node-resolve": "^16.0.0",
+        "@rollup/plugin-terser": "^0.4.4",
+        "babel-loader": "^9.2.1",
+        "rollup": "^2.79.2",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^6.0.1"
+    }
 }
