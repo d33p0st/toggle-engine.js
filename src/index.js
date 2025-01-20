@@ -132,7 +132,7 @@ function toggle(startHour, startMinute, startSecond, endHour, endMinute, endSeco
 
     if (refreshRate !== null) {
         setTimeout(() => {
-            enableDarkMode(startHour, startMinute, startSecond, endHour, endMinute, endSecond, refreshRate, optCallable, ...optArgs);
+            toggle(startHour, startMinute, startSecond, endHour, endMinute, endSecond, className, refreshRate, optCallable, ...optArgs);
         }, refreshRate);
     }
 }
