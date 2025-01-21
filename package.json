@@ -1,13 +1,23 @@
 {
     "name": "toggle-engine",
-    "version": "1.0.0",
-    "description": "Adds a class name of user's choice to the entire document. Typical use case can be enabling dark mode.",
-    "main": "index.js",
-    "keywords": [],
-    "author": "",
+    "version": "1.0.3",
+    "description": "Adds a class name of user's choice to the entire document on user defined time frame. Typical use case can be enabling dark mode.",
+    "main": "dist/toggle-engine.js",
+    "types": "dist/toggle-engine.d.ts",
+    "typings": "dist/toggle-engine.d.ts",
+    "keywords": ["toggle", "engine", "dark", "mode", "jekyll", "static"],
+    "author": "Soumyo Deep Gupta (d33p0st.in)",
     "license": "MIT",
     "devDependencies": {
         "rollup": "^2.79.2"
     },
-    "type": "module"
+    "type": "module",
+    "scripts": {
+        "build": "npx rollup -c"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/d33p0st/toggle-engine.js"
+    },
+    "readme": "README.md"
 }

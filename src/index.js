@@ -118,7 +118,7 @@ function toggle(startHour, startMinute, startSecond, endHour, endMinute, endSeco
         }
     } else {
         // light mode here
-        body.classList.remove('className');
+        body.classList.remove(className);
 
         // run callable if it is not null
         if (optCallable !== null) {
